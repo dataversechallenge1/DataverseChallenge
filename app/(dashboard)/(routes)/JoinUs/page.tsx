@@ -30,7 +30,7 @@ const FormComponent: React.FC = () => {
           {/* Social Media Input */}
           <div className="mt-4">
             <label htmlFor="resume">resume:</label>
-            <input type="url" id="resume" name="resume" placeholder="please insert a link for your resume" className="w-full p-2 border border-gray-300 rounded my-1" required />
+            <input type="url" id="resume" name="resume" placeholder="please insert a link for your resume" className="w-full p-2 border border-gray-200 rounded my-1" required />
 
             <label htmlFor="github">github:</label>
             <input type="url" id="github" name="github" placeholder="Enter your github account" className="w-full p-2 border border-gray-300 rounded my-1" />
