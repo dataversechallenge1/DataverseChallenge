@@ -2,9 +2,10 @@
 const nextConfig = {
   images: {
     domains: [
-      "utfs.io"
+      "utfs.io",
+      "placekitten.com"
     ]
   }
 }
 
-module.exports = nextConfig
+module.exports = nextConfig;

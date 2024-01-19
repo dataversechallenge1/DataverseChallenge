@@ -2,37 +2,48 @@
 
 import { Activity, BarChart, Briefcase, Compass, Globe, Layout, LayoutDashboard, List, Mail, ShieldHalf } from "lucide-react";
 import { usePathname } from "next/navigation";
+import React, { useEffect } from 'react';
+import { Steps, Hints } from 'intro.js-react';
 
 import { SidebarItem } from "./sidebar-item";
+
+import 'intro.js/introjs.css';
+import introJs from 'intro.js';
+
+
+
+
+
+
+
 
 const guestRoutes = [
   {
     icon: LayoutDashboard,
-    label: "Dashboard",
-    href: "/",
+    label: 'Dashboard',
+    href: '/',
   },
   {
     icon: Globe,
-    label: "Browse",
-    href: "/search",
+    label: 'Browse',
+    href: '/search',
   },
   {
     icon: ShieldHalf,
-    label: "Meet Us",
-    href: "/about",
+    label: 'About Us',
+    href: '/about',
   },
   {
     icon: Mail,
-    label: "Contact Us",
-    href: "/contact_us",
+    label: 'Contact Us',
+    href: '/contact_us',
   },
   {
     icon: Briefcase,
-    label: "Join Us",
-    href: "/JoinUs",
+    label: 'Join Us',
+    href: '/JoinUs',
   },
 ];
-
 
 const teacherRoutes = [
   {
@@ -47,12 +58,17 @@ const teacherRoutes = [
   },
 ]
 
+
+
 export const SidebarRoutes = () => {
   const pathname = usePathname();
 
   const isTeacherPage = pathname?.includes("/teacher");
 
   const routes = isTeacherPage ? teacherRoutes : guestRoutes;
+
+
+
 
   return (
     <div className="flex flex-col w-full">

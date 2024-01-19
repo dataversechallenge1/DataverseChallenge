@@ -27,32 +27,31 @@ export const SidebarItem = ({
   const onClick = () => {
     router.push(href);
   }
-
   return (
     <button
       onClick={onClick}
       type="button"
       className={cn(
-        "flex items-center gap-x-2 text-slate-500 text-sm font-[500] pl-6 transition-all hover:text-slate-600 hover:bg-slate-300/20",
-        isActive && "text-sky-700 bg-sky-200/20 hover:bg-sky-200/20 hover:text-sky-700"
+        "flex items-center gap-x-2 text-cool-gray-800 text-sm font-[500] pl-6 transition-all hover:text-cool-gray-900 hover:bg-cool-gray-100/20",
+        isActive && "text-cyan-700 bg-blue-200/20 hover:bg-blue-200/20 hover:text-blue-700"
       )}
     >
       <div className="flex items-center gap-x-2 py-4">
         <Icon
           size={22}
           className={cn(
-            "text-slate-500",
-            isActive && "text-sky-700"
+            "text-cool-gray-800",
+            isActive && "text-cyan-700"
           )}
         />
         {label}
       </div>
       <div
         className={cn(
-          "ml-auto opacity-0 border-2 border-sky-700 h-full transition-all",
+          "ml-auto opacity-0 border-2 border-red-500 h-full transition-all",
           isActive && "opacity-100"
         )}
       />
     </button>
-  )
-}
+  );
+};

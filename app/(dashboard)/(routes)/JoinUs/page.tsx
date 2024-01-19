@@ -4,7 +4,7 @@ const FormComponent: React.FC = () => {
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="p-8 rounded shadow-md dark:shadow-lg w-3/4 border-2 black">
-        <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
+        <h2 className="text-2xl font-semibold mb-4">Join Us</h2>
 
         <form action="https://formspree.io/f/mnqeaved" method="post">
 

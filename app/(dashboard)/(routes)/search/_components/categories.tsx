@@ -3,13 +3,23 @@
 import { Category } from "@prisma/client";
 import {
   FcEngineering,
-  FcFilmReel,
-  FcMultipleDevices,
-  FcMusic,
+  FcTreeStructure,
   FcOldTimeCamera,
-  FcSalesPerformance,
-  FcSportsMode
+  FcIdea,
+  FcAlphabeticalSortingAz,
+  FcFlowChart,
+  FcAcceptDatabase,
+  FcPositiveDynamic,
+
+  FcShipped,
+  FcSettings,
 } from "react-icons/fc";
+import { LuBinary } from "react-icons/lu";
+import { TbBinaryTree,TbBrandJavascript } from "react-icons/tb";
+import { VscFileBinary } from "react-icons/vsc";
+import { FaBusinessTime } from "react-icons/fa6";
+import { FaJava } from "react-icons/fa6";
+
 import { IconType } from "react-icons";
 
 import { CategoryItem } from "./category-item";
@@ -19,13 +29,16 @@ interface CategoriesProps {
 }
 
 const iconMap: Record<Category["name"], IconType> = {
-  "Music": FcMusic,
-  "Photography": FcOldTimeCamera,
-  "Fitness": FcSportsMode,
-  "Accounting": FcSalesPerformance,
-  "Computer Science": FcMultipleDevices,
-  "Filming": FcFilmReel,
-  "Engineering": FcEngineering,
+  "Computer Science Fundamentals": FcFlowChart, 
+  "Software Engineering Essentials": FcShipped,
+  "Information System Basics": FcAcceptDatabase, //data visualization example
+  "Introduction to Programming": FaJava,
+  "Essential Data Structures": FcTreeStructure,
+  "Algorithmic Principles": FcAlphabeticalSortingAz,
+  "Problem Solving Strategies": FcIdea,
+  "Business and Tech Integration": FaBusinessTime,
+  "Web Programming": TbBrandJavascript,
+
 };
 
 export const Categories = ({

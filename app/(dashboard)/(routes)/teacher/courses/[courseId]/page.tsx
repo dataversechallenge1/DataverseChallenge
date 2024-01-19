@@ -75,7 +75,7 @@ const CourseIdPage = async ({
     <>
       {!course.isPublished && (
         <Banner
-          label="This course is unpublished. It will not be visible to the students."
+          label="Finalize Course Publication for Student Access "
         />
       )}
       <div className="p-6">
@@ -99,7 +99,7 @@ const CourseIdPage = async ({
             <div className="flex items-center gap-x-2">
               <IconBadge icon={LayoutDashboard} />
               <h2 className="text-xl">
-                Customize your course
+              Customization Features for Your Course
               </h2>
             </div>
             <TitleForm
@@ -140,7 +140,7 @@ const CourseIdPage = async ({
               <div className="flex items-center gap-x-2">
                 <IconBadge icon={CircleDollarSign} />
                 <h2 className="text-xl">
-                  Sell your course
+                  Set Your Course Fee
                 </h2>
               </div>
               <PriceForm
