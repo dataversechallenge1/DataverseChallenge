@@ -7,13 +7,6 @@ import { Steps, Hints } from 'intro.js-react';
 
 import { SidebarItem } from "./sidebar-item";
 
-import 'intro.js/introjs.css';
-import introJs from 'intro.js';
-
-
-
-
-
 
 
 

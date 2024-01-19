@@ -5,8 +5,6 @@ import { getDashboardCourses } from "@/actions/get-dashboard-courses";
 import { CoursesList } from "@/components/courses-list";
 import { InfoCard } from "./_components/info-card";
 
-import 'intro.js/introjs.css';
-import introJs from 'intro.js';
 
 export default async function Dashboard() {
   const { userId } = auth();
