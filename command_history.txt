@@ -1,0 +1,16 @@
+ 1074  git init 
+ 1075  git add .
+ 1076  git push -u origin main\n
+ 1077  clear
+ 1078  npm run dev
+ 1079  git init\n
+ 1080  clear
+ 1081  git init\n
+ 1082  git add .
+ 1083  git commit -m "first commit"\n
+ 1084  git branch -M main\n
+ 1085  git remote add origin https://github.com/dataversechallenge1/dataverse.git
+ 1086  git push -u origin main\n
+ 1087  npm run dev
+ 1088  hisotry
+ 1089  history

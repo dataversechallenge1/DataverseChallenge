@@ -83,7 +83,7 @@ export const PriceForm = ({
         )}>
           {initialData.price
             ? formatPrice(initialData.price)
-            : "No price"
+            : "be aware that 30% of the price will be deducted"
           }
         </p>
       )}

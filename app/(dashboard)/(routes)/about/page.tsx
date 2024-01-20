@@ -4,6 +4,7 @@ import { Logo } from '../../_components/logo';
 import Image from 'next/image';
 import 'intro.js/introjs.css';
 import introJs from 'intro.js';
+const videoSource = '/path/to/binary1.mp4';
 
 interface TeamMember {
   name: string;
@@ -109,27 +110,54 @@ const AboutUsPage: React.FC = () => {
 
   
 
-
   return (
     <div className="font-sans bg-gray-100 text-center">
       {/* Vision Section */}
       <div className="py-12">
         <h2 className="text-4xl font-bold mb-6">Our Vision</h2>
         <p className="text-lg leading-relaxed">
-          To establish Dataverse Challenge as a user-friendly and accessible online learning platform that makes education enjoyable and accessible for all.
-        </p>
+        At Dataverse, we envision a world where online education 
+        becomes a dynamic and accessible force, transcending boundaries to provide learners of all ages and backgrounds 
+        with an engaging and transformative learning 
+        experience. Our vision is to be a global leader in the realm of web-based education, pioneering innovative approaches that empower
+         individuals to thrive in the digital era  </p>
       </div>
 
       {/* Mission Section */}
       <div className="py-12 bg-gray-200">
         <h2 className="text-4xl font-bold mb-6">Our Mission</h2>
         <p className="text-lg leading-relaxed">
-          At Dataverse Challenge, our mission is to provide a seamless and easy-to-use web-based Learning Management System. We are dedicated to offering diverse and engaging learning content, making education accessible to everyone. We aim to remove barriers to learning, creating a positive and inclusive environment for all learners.
-        </p>
+        At Dataverse, our mission is to revolutionize online learning through a comprehensive and user-friendly web-based platform.
+         We are committed to fostering a passion for computer science,
+          equipping learners with essential skills for competitive programming,
+           and delving into web development, software engineering, and information systems. 
+           Beyond coding, we aim to guide our users in transforming knowledge into market-ready products.
+            With a focus on the synergy between technology and business, 
+            we strive to make digital transformation accessible and exciting.
+             Join us on a dynamic and rewarding educational adventure, 
+             where our web-based platform 
+             opens doors to endless possibilities for learners worldwide.</p>
       </div>
 
       {/* Colorful Divider Above Team Section */}
       <ColorfulDivider color="green" />
+
+
+            {/* Video Section */}
+            <div className="py-12">
+        <h2 className="text-4xl font-bold mb-6">Unveiling Dataverse Challenge: Our Passion, Your Learning</h2>
+        <div className="flex justify-center">
+          
+        {/* aspect ration : 16/9
+              16/9 * 1024 = 576
+        */}
+        <video controls width="1024" height="576">
+
+          <source src="/dataverse2.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
 
       {/* Team Section */}
       <h2 className="text-center mt-8 text-4xl font-bold">Our Team</h2>
