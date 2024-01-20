@@ -143,21 +143,21 @@ const AboutUsPage: React.FC = () => {
       <ColorfulDivider color="green" />
 
 
-            {/* Video Section */}
-            <div className="py-12">
-        <h2 className="text-4xl font-bold mb-6">Unveiling Dataverse Challenge: Our Passion, Your Learning</h2>
-        <div className="flex justify-center">
-          
-        {/* aspect ration : 16/9
-              16/9 * 1024 = 576
-        */}
-        <video controls width="1024" height="576">
+{/* Video Section */}
+<div className="py-12">
+  <h2 className="text-4xl font-bold mb-6">Unveiling Dataverse Challenge: Our Passion, Your Learning</h2>
+  <div className="flex justify-center">
+    {/* Replace the Vimeo video with the YouTube video */}
+    <iframe
+      src="https://www.youtube.com/embed/2Y4f8tEtC5c"
+      width="1024"
+      height="576"
+      frameBorder="0"
+      allowFullScreen
+    ></iframe>
+  </div>
+</div>
 
-          <source src="/dataverse0.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
 
       {/* Team Section */}
       <h2 className="text-center mt-8 text-4xl font-bold">Our Team</h2>
