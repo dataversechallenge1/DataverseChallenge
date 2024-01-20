@@ -153,7 +153,7 @@ const AboutUsPage: React.FC = () => {
         */}
         <video controls width="1024" height="576">
 
-          <source src="/dataverse2.mp4" type="video/mp4" />
+          <source src="/dataverse0.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
