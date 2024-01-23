@@ -6,7 +6,7 @@ const FormComponent: React.FC = () => {
       <div className="p-8 rounded shadow-md dark:shadow-lg w-3/4 border-2 bg-white">
         <h2 className="text-4xl font-semibold mb-6 text-gray-800">Contact Us</h2>
 
-        <form action="https://formcarry.com/s/mkndowea" method="post">
+        <form action="https://formspree.io/f/mkndowea" method="post">
 
           <div className="mb-6">
             <label htmlFor="fname" className="block text-sm font-medium text-gray-600">First Name:</label>
