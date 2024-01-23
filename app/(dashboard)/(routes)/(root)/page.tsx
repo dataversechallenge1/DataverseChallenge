@@ -25,11 +25,12 @@ export default async function Dashboard() {
           </div>
           <div>
             <p className="text-lg font-semibold text-gray-800">In Progress</p>
-            <p className="text-gray-500">
-              {coursesInProgress.length > 0
-                ? `${coursesInProgress.length} items`
-                : 'No ongoing courses at the moment'}
-            </p>
+          <p className="text-gray-500">
+          {coursesInProgress.length > 0
+            ? `${coursesInProgress.length} ${coursesInProgress.length === 1 ? 'course' : 'courses'}`
+            : 'No ongoing courses at the moment'}
+        </p>
+
           </div>
         </div>
         <div className="flex items-center p-4 bg-green-500 rounded-md shadow-md">
@@ -39,9 +40,10 @@ export default async function Dashboard() {
           <div>
             <p className="text-lg font-semibold text-white">Completed</p>
             <p className="text-white">
-              {completedCourses.length > 0
-                ? `${completedCourses.length} items`
-                : 'You are one step closer to completing your first course'}
+            {completedCourses.length > 0
+        ? `${completedCourses.length} ${completedCourses.length === 1 ? 'course' : 'courses'}`
+        : 'You are one step closer to completing your first course'}
+
             </p>
           </div>
         </div>
