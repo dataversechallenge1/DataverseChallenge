@@ -38,51 +38,32 @@ export async function DELETE(
       return new NextResponse("Not found", { status: 404 });
     }
 
+    // Iterate over chapters and attempt to delete video, but don't halt on errors
     for (const chapter of course.chapters) {
       if (chapter.muxData?.assetId) {
-        await Video.Assets.del(chapter.muxData.assetId);
+        try {
+          // Attempt to delete the video associated with the chapter
+          await Video.Assets.del(chapter.muxData.assetId);
+        } catch (videoDeletionError) {
+          // Log the error, but continue with the deletion of the course
+          console.error("[VIDEO_DELETION_ERROR]", videoDeletionError);
+        }
       }
     }
 
+    // Delete the course and its chapters from the database
     const deletedCourse = await db.course.delete({
       where: {
         id: params.courseId,
       },
     });
 
+    // Return JSON response with the deleted course data
     return NextResponse.json(deletedCourse);
   } catch (error) {
-    console.log("[COURSE_ID_DELETE]", error);
-    return new NextResponse("Internal Error", { status: 500 });
-  }
-}
-
-export async function PATCH(
-  req: Request,
-  { params }: { params: { courseId: string } }
-) {
-  try {
-    const { userId } = auth();
-    const { courseId } = params;
-    const values = await req.json();
-
-    if (!userId) {
-      return new NextResponse("Unauthorized", { status: 401 });
-    }
-
-    const course = await db.course.update({
-      where: {
-        id: courseId,
-        userId
-      },
-      data: {
-        ...values,
-      }
-    });
-
-    return NextResponse.json(course);
-  } catch (error) {
-    console.log("[COURSE_ID]", error);
+    // Log any other errors during the process
+    console.error("[COURSE_ID_DELETE]", error);
+    // Return a generic internal error response
     return new NextResponse("Internal Error", { status: 500 });
   }
 }
