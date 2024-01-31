@@ -49,18 +49,13 @@ export async function DELETE(
         }
       });
 
-      try {
-        if (existingMuxData) {
-          await Video.Assets.del(existingMuxData.assetId);
-          await db.muxData.delete({
-            where: {
-              id: existingMuxData.id,
-            }
-          });
-        }
-      } catch (videoDeletionError) {
-        console.log("[VIDEO_DELETION_ERROR]", videoDeletionError);
-        // Handle or log the video deletion error, but proceed with chapter deletion
+      if (existingMuxData) {
+        await Video.Assets.del(existingMuxData.assetId);
+        await db.muxData.delete({
+          where: {
+            id: existingMuxData.id,
+          }
+        });
       }
     }
 
@@ -135,33 +130,28 @@ export async function PATCH(
         }
       });
 
-      try {
-        if (existingMuxData) {
-          await Video.Assets.del(existingMuxData.assetId);
-          await db.muxData.delete({
-            where: {
-              id: existingMuxData.id,
-            }
-          });
-        }
-
-        const asset = await Video.Assets.create({
-          input: values.videoUrl,
-          playback_policy: "public",
-          test: false,
-        });
-
-        await db.muxData.create({
-          data: {
-            chapterId: params.chapterId,
-            assetId: asset.id,
-            playbackId: asset.playback_ids?.[0]?.id,
+      if (existingMuxData) {
+        await Video.Assets.del(existingMuxData.assetId);
+        await db.muxData.delete({
+          where: {
+            id: existingMuxData.id,
           }
         });
-      } catch (videoDeletionError) {
-        console.log("[VIDEO_DELETION_ERROR]", videoDeletionError);
-        // Handle or log the video deletion error, but proceed with chapter update
       }
+
+      const asset = await Video.Assets.create({
+        input: values.videoUrl,
+        playback_policy: "public",
+        test: false,
+      });
+
+      await db.muxData.create({
+        data: {
+          chapterId: params.chapterId,
+          assetId: asset.id,
+          playbackId: asset.playback_ids?.[0]?.id,
+        }
+      });
     }
 
     return NextResponse.json(chapter);
