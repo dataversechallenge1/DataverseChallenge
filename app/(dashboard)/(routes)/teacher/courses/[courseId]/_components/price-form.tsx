@@ -25,17 +25,17 @@ import { formatPrice } from "@/lib/format";
 interface PriceFormProps {
   initialData: Course;
   courseId: string;
-};
+}
 
 const formSchema = z.object({
   price: z.coerce.number(),
 });
-
 export const PriceForm = ({
   initialData,
   courseId
 }: PriceFormProps) => {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(!initialData.price);
+  const [isPriceSet, setIsPriceSet] = useState(!!initialData.price);
 
   const toggleEdit = () => setIsEditing((current) => !current);
 
@@ -54,6 +54,7 @@ export const PriceForm = ({
     try {
       await axios.patch(`/api/courses/${courseId}`, values);
       toast.success("Course updated");
+      setIsPriceSet(true);
       toggleEdit();
       router.refresh();
     } catch {
@@ -65,29 +66,38 @@ export const PriceForm = ({
     <div className="mt-6 border bg-slate-100 rounded-md p-4">
       <div className="font-medium flex items-center justify-between">
         Course price
-        <Button onClick={toggleEdit} variant="ghost">
-          {isEditing ? (
-            <>Cancel</>
-          ) : (
-            <>
-              <Pencil className="h-4 w-4 mr-2" />
-              Edit price
-            </>
-          )}
-        </Button>
+        {!isPriceSet && (
+          <Button onClick={toggleEdit} variant="ghost">
+            {isEditing ? (
+              <>Cancel</>
+            ) : (
+              <>
+                <Pencil className="h-4 w-4 mr-2" />
+                Edit price
+              </>
+            )}
+          </Button>
+        )}
       </div>
       {!isEditing && (
-        <p className={cn(
-          "text-sm mt-2",
-          !initialData.price && "text-slate-500 italic"
-        )}>
-          {initialData.price
-            ? formatPrice(initialData.price)
-            : "be aware that 30% of the price will be deducted"
-          }
-        </p>
+        <div>
+          <p className={cn(
+            "text-sm mt-2",
+            !initialData.price && "text-slate-500 italic"
+          )}>
+            {initialData.price
+              ? formatPrice(initialData.price)
+              : "be aware that 30% of the price will be deducted"
+            }
+          </p>
+          {isPriceSet && (
+            <p className="text-red-500 text-sm mt-2">
+             be aware Once the price is set, it cannot be changed.
+            </p>
+          )}
+        </div>
       )}
-      {isEditing && (
+      {isEditing && !isPriceSet && (
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}

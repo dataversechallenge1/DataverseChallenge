@@ -24,7 +24,7 @@ interface TitleFormProps {
     title: string;
   };
   courseId: string;
-};
+}
 
 const formSchema = z.object({
   title: z.string().min(1, {
@@ -36,7 +36,8 @@ export const TitleForm = ({
   initialData,
   courseId
 }: TitleFormProps) => {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(!initialData.title);
+  const [isTitleSet, setIsTitleSet] = useState(!!initialData.title);
 
   const toggleEdit = () => setIsEditing((current) => !current);
 
@@ -53,6 +54,7 @@ export const TitleForm = ({
     try {
       await axios.patch(`/api/courses/${courseId}`, values);
       toast.success("Course updated");
+      setIsTitleSet(true);
       toggleEdit();
       router.refresh();
     } catch {
@@ -64,23 +66,25 @@ export const TitleForm = ({
     <div className="mt-6 border bg-slate-100 rounded-md p-4">
       <div className="font-medium flex items-center justify-between">
         Course title
-        <Button onClick={toggleEdit} variant="ghost">
-          {isEditing ? (
-            <>Cancel</>
-          ) : (
-            <>
-              <Pencil className="h-4 w-4 mr-2" />
-              Edit title
-            </>
-          )}
-        </Button>
+        {!isTitleSet && (
+          <Button onClick={toggleEdit} variant="ghost">
+            {isEditing ? (
+              <>Cancel</>
+            ) : (
+              <>
+                <Pencil className="h-4 w-4 mr-2" />
+                Edit title
+              </>
+            )}
+          </Button>
+        )}
       </div>
       {!isEditing && (
         <p className="text-sm mt-2">
           {initialData.title}
         </p>
       )}
-      {isEditing && (
+      {isEditing && !isTitleSet && (
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
