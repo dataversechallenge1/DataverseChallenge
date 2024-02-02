@@ -30,6 +30,7 @@ interface PriceFormProps {
 const formSchema = z.object({
   price: z.coerce.number(),
 });
+
 export const PriceForm = ({
   initialData,
   courseId
@@ -80,22 +81,15 @@ export const PriceForm = ({
         )}
       </div>
       {!isEditing && (
-        <div>
-          <p className={cn(
-            "text-sm mt-2",
-            !initialData.price && "text-slate-500 italic"
-          )}>
-            {initialData.price
-              ? formatPrice(initialData.price)
-              : "be aware that 30% of the price will be deducted"
-            }
-          </p>
-          {isPriceSet && (
-            <p className="text-red-500 text-sm mt-2">
-             be aware Once the price is set, it cannot be changed.
-            </p>
-          )}
-        </div>
+        <p className={cn(
+          "text-sm mt-2",
+          !initialData.price && "text-slate-500 italic"
+        )}>
+          {initialData.price
+            ? formatPrice(initialData.price)
+            : "be aware that 30% of the price will be deducted"
+          }
+        </p>
       )}
       {isEditing && !isPriceSet && (
         <Form {...form}>
@@ -135,3 +129,4 @@ export const PriceForm = ({
     </div>
   )
 }
+ 
