@@ -23,6 +23,7 @@ import { Empty } from "@/components/ui/empty";
 import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema } from "./constants";
+import { FaCode } from "react-icons/fa";
 
 const CodePage = () => {
   const router = useRouter();
@@ -61,9 +62,9 @@ const CodePage = () => {
   return ( 
     <div>
       <Heading
-        title="Code Generation"
+        title="Code Generator"
         description="Generate code using descriptive text."
-        icon={Code}
+        icon={FaCode}
         iconColor="text-green-700"
         bgColor="bg-green-700/10"
       />
