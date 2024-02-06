@@ -7,6 +7,7 @@ import { Steps, Hints } from 'intro.js-react';
 
 import { SidebarItem } from "./sidebar-item";
 
+import { FaCode } from "react-icons/fa";
 
 
 
@@ -20,6 +21,11 @@ const guestRoutes = [
     icon: Globe,
     label: 'Browse',
     href: '/search',
+  },
+  {
+    icon: FaCode,
+    label: "Code Generator",
+    href: "/code",
   },
   {
     icon: ShieldHalf,
@@ -49,6 +55,12 @@ const teacherRoutes = [
     label: "Analytics",
     href: "/teacher/analytics",
   },
+  {
+    icon: BarChart,
+    label: "Code Generator",
+    href: "/code",
+  },
+  
 ]
 
 

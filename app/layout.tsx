@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'DataverseChallenge',
-  description: 'LMS',
+  description: 'Dataverse',
 }
 
 export default function RootLayout({
