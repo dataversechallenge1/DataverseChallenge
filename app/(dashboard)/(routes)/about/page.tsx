@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { Logo } from '../../_components/logo';
 import Image from 'next/image';
 import 'intro.js/introjs.css';
-import introJs from 'intro.js';
 
 interface TeamMember {
   name: string;
@@ -28,6 +27,7 @@ const ContactButtonComponent: React.FC<{ email: string }> = ({ email }) => (
     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
     onClick={() => window.location.href = `mailto:${email}`}
   >
+    
     Contact
   </button>
 );
