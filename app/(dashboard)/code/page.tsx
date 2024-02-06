@@ -97,7 +97,7 @@ const CodePage = () => {
                       <Input
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading} 
-                        placeholder="ask any thing for code " 
+                        placeholder="Stuck in a code? Don't worry, we've got your back!" 
                         {...field}
                       />
                     </FormControl>
