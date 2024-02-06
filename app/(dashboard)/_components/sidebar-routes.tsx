@@ -56,7 +56,7 @@ const teacherRoutes = [
     href: "/teacher/analytics",
   },
   {
-    icon: BarChart,
+    icon: FaCode,
     label: "Code Generator",
     href: "/code",
   },
