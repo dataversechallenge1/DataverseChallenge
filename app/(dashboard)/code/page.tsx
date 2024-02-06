@@ -1,8 +1,5 @@
 "use client";
 
-//import { FaCode } from "react-icons/fa";
-//<FaCode />
-
 import * as z from "zod";
 import axios from "axios";
 import { Code } from "lucide-react";
@@ -26,7 +23,6 @@ import { Empty } from "@/components/ui/empty";
 import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema } from "./constants";
-import { FaCode } from "react-icons/fa";
 
 const CodePage = () => {
   const router = useRouter();
@@ -65,9 +61,9 @@ const CodePage = () => {
   return ( 
     <div>
       <Heading
-        title="Code Generator"
+        title="Code Generation"
         description="Generate code using descriptive text."
-        icon={FaCode}
+        icon={Code}
         iconColor="text-green-700"
         bgColor="bg-green-700/10"
       />
@@ -97,7 +93,7 @@ const CodePage = () => {
                       <Input
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading} 
-                        placeholder="Stuck in code? Don't worry, we've got your back! , ask whatever you need and i'll generate the code for you" 
+                        placeholder="Simple toggle button using react hooks." 
                         {...field}
                       />
                     </FormControl>
